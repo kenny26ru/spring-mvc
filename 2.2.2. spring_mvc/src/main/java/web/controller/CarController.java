@@ -37,7 +37,6 @@ public class CarController {
         return "cars";
     }
 
-
     public String printModelRu(String s, ModelMap model) {
         if (s.equals("ru")) {
             model.addAttribute("header_cars", "МАШИНЫ");
