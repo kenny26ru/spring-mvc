@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <th:block th:each="msg : ${messages}">
+        <h1 th:text="${msg}"></h1>
+    </th:block>
+
+    <a href="/spring_mvc_war_exploded/cars?locale=en">
+        <p>List of car in English</p>
+    </a>
+
+    <a href="/spring_mvc_war_exploded/cars?locale=ru">
+        <p>Лист с машинами на Русском</p>
+    </a>
+</div>
+</body>
+</html>
