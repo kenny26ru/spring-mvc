@@ -4,6 +4,7 @@ public class Car {
     private String mark;
     private int series;
     private String color;
+    private int countDriver;
 
     public Car() {
     }
