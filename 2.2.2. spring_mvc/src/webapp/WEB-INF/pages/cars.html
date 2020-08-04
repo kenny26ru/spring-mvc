@@ -4,11 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Cars</title>
+
+    <style>
+        caption {
+            font-weight: bold;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+    </style>
 </head>
 <body>
-    <h1 th:text="${header_cars}">C A R S</h1>
+    <h1 >Table of cars</h1>
 
-    <table>
+    <table  width="30%" border="1" cellpadding="4" cellspacing="0">
+        <caption th:text="${header_cars}"></caption>
         <tr>
             <th th:text="${head_table1}">Mark</th>
             <th th:text="${head_table2}">Series</th>
@@ -22,8 +31,8 @@
             </th>
             <th>
                 <th:block th:each="lc : ${list_cars}">
-                <p th:text="${lc.getSeries()}"></p>
-            </th:block>
+                    <p th:text="${lc.getSeries()}"></p>
+                </th:block>
             </th>
             <th>
                 <th:block th:each="lc : ${list_cars}">
