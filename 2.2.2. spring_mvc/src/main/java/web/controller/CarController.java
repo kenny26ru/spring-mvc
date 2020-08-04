@@ -28,7 +28,14 @@ public class CarController {
 
     @GetMapping("/cars")
     public String printListOfCars(@RequestParam("locale")String s, ModelMap model) {
-        printModelRu(s, model);
+        if (s.equals("ru")) {
+            model.addAttribute("header_cars", "МАШИНЫ");
+        } else if (s.equals("en")) {
+            model.addAttribute("header_cars", "CARS");
+        }
+        model.addAttribute("head_table1", "Mark");
+        model.addAttribute("head_table2", "Series");
+        model.addAttribute("head_table3", "Color");
         carsList = new ArrayList<>();
         carsList.add(new Car("Dodge", 111, "Brown"));
         carsList.add(new Car("Ferrari", 100, "Red"));
@@ -36,21 +43,4 @@ public class CarController {
         model.addAttribute("list_cars", carsList);
         return "cars";
     }
-
-    public String printModelRu(String s, ModelMap model) {
-        if (s.equals("ru")) {
-            model.addAttribute("header_cars", "МАШИНЫ");
-            model.addAttribute("head_table1", "Марка");
-            model.addAttribute("head_table2", "Серия");
-            model.addAttribute("head_table3", "Цвет");
-        } else if (s.equals("en")) {
-            model.addAttribute("header_cars", "CARS");
-            model.addAttribute("head_table1", "Mark");
-            model.addAttribute("head_table2", "Series");
-            model.addAttribute("head_table3", "Color");
-        }
-        return "cars";
-    }
-
-
 }
